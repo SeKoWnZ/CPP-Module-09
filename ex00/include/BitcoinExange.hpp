@@ -6,7 +6,7 @@
 /*   By: jose-gon <jose-gon@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 11:12:13 by jose-gon          #+#    #+#             */
-/*   Updated: 2025/09/26 19:57:04 by jose-gon         ###   ########.fr       */
+/*   Updated: 2025/10/07 18:17:48 by jose-gon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,23 +19,25 @@
 #include <stdexcept>
 #include <sstream>
 #include <cstdlib>
+#include <iomanip>
 
 class BitcoinExange
 {
 	private:
 	
-		std::map<std::string, double> _datab;
+		std::map<int, double> _datab;
 		
 	public:
 	
 		BitcoinExange();
 		~BitcoinExange();
 
-		bool isValidDate(std::string date);
+		int isValidDate(std::string date);
+		double isValidValue(std::string val);
+		double isValidValueLimit(std::string val, int n);
+		void makeExange(std::map<int, double>::iterator it, double val);
 		void loadRates(const std::string &rates);
-		
-		const std::map<std::string, double>& getData() const {
-        return _datab;}	// quitar
+		void exangeValues(const std::string &file);
 };
 
 #endif

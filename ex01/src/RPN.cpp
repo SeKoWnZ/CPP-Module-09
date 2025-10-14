@@ -1,30 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   RPN.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jose-gon <jose-gon@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/15 17:01:30 by jose-gon          #+#    #+#             */
-/*   Updated: 2025/10/08 17:55:26 by jose-gon         ###   ########.fr       */
+/*   Created: 2025/10/14 20:29:48 by jose-gon          #+#    #+#             */
+/*   Updated: 2025/10/14 20:29:49 by jose-gon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <BitcoinExange.hpp>
-
-int main(int argc, char **argv)
-{
- 	if (argc != 2)
- 		return 1;
-	BitcoinExange exange;
-	try
-	{
-		exange.loadRates("data.csv");
-		exange.exangeValues(argv[1]);
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
-	return 0;
-}
