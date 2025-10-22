@@ -6,7 +6,7 @@
 /*   By: jose-gon <jose-gon@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 20:29:48 by jose-gon          #+#    #+#             */
-/*   Updated: 2025/10/21 18:08:57 by jose-gon         ###   ########.fr       */
+/*   Updated: 2025/10/22 10:24:38 by jose-gon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ void RPN::calculate(const std::string &expression)
 			stack.pop();
 			int a = stack.top();
 			stack.pop();
-			std::cout << "A: " << a << std::endl << "B: " << b << std::endl;
 			
 			switch (token[0])
 			{
