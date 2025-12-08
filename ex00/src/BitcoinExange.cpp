@@ -6,7 +6,7 @@
 /*   By: jose-gon <jose-gon@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/15 17:06:28 by jose-gon          #+#    #+#             */
-/*   Updated: 2025/10/14 20:13:33 by jose-gon         ###   ########.fr       */
+/*   Updated: 2025/12/02 17:38:51 by jose-gon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -181,20 +181,12 @@ void BitcoinExange::exangeValues(const std::string &file)
 			continue;
 		}
 		
-		std::map<int, double>::iterator it = _datab.begin();
-		
-		while (it != _datab.end() && it->first < iDate)
-			it++;
+		std::map<int, double>::iterator it = _datab.lower_bound(iDate);
 			
 		if (it != _datab.end() && it->first == iDate)
 			makeExange(it, dVal);
 		else if (it == _datab.begin()) 
 			std::cerr << "No hay una fecha anterior a " << date << std::endl;
-		else if (it == _datab.end())
-		{
-		--it;
-		makeExange(it, dVal);
-		}
 		else
 		{
 			--it;

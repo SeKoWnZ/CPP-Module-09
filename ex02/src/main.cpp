@@ -1,32 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PmergeMe.hpp                                       :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jose-gon <jose-gon@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/22 10:34:36 by jose-gon          #+#    #+#             */
-/*   Updated: 2025/12/03 18:05:43 by jose-gon         ###   ########.fr       */
+/*   Created: 2025/12/03 17:42:25 by jose-gon          #+#    #+#             */
+/*   Updated: 2025/12/03 18:09:19 by jose-gon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PMERGEME_HPP
-#define	PMERGEME_HPP
+#include <PmergeMe.hpp>
 
-#include <vector>
-#include <deque>
-#include <stdexcept>
-
-class PmergeMe
+void check_args(int n, char** args)
 {
-	private:
+	if (n == 1)
+		throw std::runtime_error("Need a positive integer sequence as argument");
+	if (all_positive_numbers(args))
 		
-	public:
-		PmergeMe();
-		~PmergeMe();
-		
-		void sort(std::vector<int> &vec);
-		void sort(std::deque<int> &de);
-};
+}
 
-#endif
+int main(int argc, char **argv)
+{
+	check_args(argc, argv);
+}
