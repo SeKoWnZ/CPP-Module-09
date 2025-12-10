@@ -6,7 +6,7 @@
 /*   By: jose-gon <jose-gon@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 10:34:36 by jose-gon          #+#    #+#             */
-/*   Updated: 2025/12/08 20:43:28 by jose-gon         ###   ########.fr       */
+/*   Updated: 2025/12/10 13:38:59 by jose-gon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,17 @@
 #include <sstream>
 #include <limits>
 #include <cstdlib>
+
+
+
+////////// BORRAR ///////////
+template <typename T> 
+void print_container(const T& container)
+{
+	for (typename T::const_iterator it = container.begin(); it != container.end(); ++it)
+		std::cout << *it << " ";
+	std::cout << std::endl;
+}
 
 class PmergeMe
 {
@@ -57,6 +68,10 @@ template <typename T> void PmergeMe::merge_container(T& container, int pair)
 {
 	typedef typename T::iterator iter;
 
+	std::cout << ">>>>> NUMBERS STORED <<<<<" << std::endl;
+	print_container(container);
+	std::cout << ">>>>><<<<<" << std::endl;
+
 	int nbr_pairs = container.size() / pair;
 	if (nbr_pairs < 2)
 		return;
@@ -78,6 +93,11 @@ template <typename T> void PmergeMe::merge_container(T& container, int pair)
 			swap_pair(it, pair);
 		}
 	}
+
+	std::cout << ">>>>> SOMETHING MOVES??? <<<<<" << std::endl;
+	print_container(container);
+	std::cout << ">>>>><<<<<" << std::endl;
+	
 	merge_container(container, pair * 2);
 }
 
