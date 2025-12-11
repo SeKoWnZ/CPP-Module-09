@@ -6,7 +6,7 @@
 /*   By: jose-gon <jose-gon@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 17:42:25 by jose-gon          #+#    #+#             */
-/*   Updated: 2025/12/10 13:24:16 by jose-gon         ###   ########.fr       */
+/*   Updated: 2025/12/11 13:53:01 by jose-gon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int main(int argc, char **argv)
 	
 	try
 	{
-		check_args(argc, ++argv);
+		check_args(argc, argv + 1);
 	}
 	catch (const std::exception &e)
 	{
