@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   BitcoinExange.cpp                                  :+:      :+:    :+:   */
+/*   BitcoinExchange.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jose-gon <jose-gon@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,12 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <BitcoinExange.hpp>
+#include <BitcoinExchange.hpp>
 
-BitcoinExange::BitcoinExange()
+BitcoinExchange::BitcoinExchange()
 {};
 
-BitcoinExange::~BitcoinExange()
+BitcoinExchange::~BitcoinExchange()
 {};
 
 bool isNumeric(std::string num)
@@ -37,7 +37,7 @@ bool isNumeric(std::string num)
 	return true;
 }
 
-double BitcoinExange::isValidValue(std::string val)
+double BitcoinExchange::isValidValue(std::string val)
 {
 	if (!isNumeric(val))
 		throw std::runtime_error("Error: bad input => " + val);
@@ -50,7 +50,7 @@ double BitcoinExange::isValidValue(std::string val)
 	return dVal;
 }
 
-double BitcoinExange::isValidValueLimit(std::string val, int n)
+double BitcoinExchange::isValidValueLimit(std::string val, int n)
 {
 	if (!isNumeric(val))
 		throw std::runtime_error("Error: bad input => " + val);
@@ -65,7 +65,7 @@ double BitcoinExange::isValidValueLimit(std::string val, int n)
 	return dVal;
 }
 
-int BitcoinExange::isValidDate(std::string date)
+int BitcoinExchange::isValidDate(std::string date)
 {
 	if (date.size() != 10 || date[4] != '-' || date[7] != '-')
 		throw std::runtime_error("Error: bad input => " + date);
@@ -99,7 +99,7 @@ int BitcoinExange::isValidDate(std::string date)
 	return year * 10000 + month * 100 + day;
 }
 
-void BitcoinExange::loadRates(const std::string &rates)
+void BitcoinExchange::loadRates(const std::string &rates)
 {
 	std::ifstream filerates(rates.c_str());
 	if (!filerates)
@@ -134,7 +134,7 @@ void BitcoinExange::loadRates(const std::string &rates)
 	filerates.close();
 }
 
-void BitcoinExange::makeExange(std::map<int, double>::iterator it, double val)
+void BitcoinExchange::makeExchange(std::map<int, double>::iterator it, double val)
 {
 	int year = it->first / 10000;
 	int month = (it->first / 100) % 100;
@@ -147,7 +147,7 @@ void BitcoinExange::makeExange(std::map<int, double>::iterator it, double val)
 	<< " => " << val << " = " << val * it->second << std::endl;
 }
 
-void BitcoinExange::exangeValues(const std::string &file)
+void BitcoinExchange::exchangeValues(const std::string &file)
 {
 	std::ifstream fileval(file.c_str());
 	if (!fileval)
@@ -184,13 +184,13 @@ void BitcoinExange::exangeValues(const std::string &file)
 		std::map<int, double>::iterator it = _datab.lower_bound(iDate);
 			
 		if (it != _datab.end() && it->first == iDate)
-			makeExange(it, dVal);
+			makeExchange(it, dVal);
 		else if (it == _datab.begin()) 
 			std::cerr << "No hay una fecha anterior a " << date << std::endl;
 		else
 		{
 			--it;
-			makeExange(it, dVal);
+			makeExchange(it, dVal);
 		}
 	}
 }

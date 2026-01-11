@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   BitcoinExange.hpp                                  :+:      :+:    :+:   */
+/*   BitcoinExchange.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jose-gon <jose-gon@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BITCOINEXANGE_HPP
-#define BITCOINEXANGE_HPP
+#ifndef BitcoinExchange_HPP
+#define BitcoinExchange_HPP
 
 #include <iostream>
 #include <map>
@@ -21,7 +21,7 @@
 #include <cstdlib>
 #include <iomanip>
 
-class BitcoinExange
+class BitcoinExchange
 {
 	private:
 	
@@ -29,15 +29,15 @@ class BitcoinExange
 		
 	public:
 	
-		BitcoinExange();
-		~BitcoinExange();
+		BitcoinExchange();
+		~BitcoinExchange();
 
 		int isValidDate(std::string date);
 		double isValidValue(std::string val);
 		double isValidValueLimit(std::string val, int n);
-		void makeExange(std::map<int, double>::iterator it, double val);
+		void makeExchange(std::map<int, double>::iterator it, double val);
 		void loadRates(const std::string &rates);
-		void exangeValues(const std::string &file);
+		void exchangeValues(const std::string &file);
 };
 
 #endif
