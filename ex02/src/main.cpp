@@ -6,7 +6,7 @@
 /*   By: jose-gon <jose-gon@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 17:42:25 by jose-gon          #+#    #+#             */
-/*   Updated: 2025/12/11 13:53:01 by jose-gon         ###   ########.fr       */
+/*   Updated: 2026/03/25 19:22:41 by jose-gon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ int main(int argc, char **argv)
 	args_to_vect(vec, argv);
 	me.sort(vec);
 	print_container(vec);
+	std::cout << "Number of Comparations: " << me.nbr_comps << std::endl;
 	
 	return 0;
 }
