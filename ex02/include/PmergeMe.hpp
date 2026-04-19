@@ -6,7 +6,7 @@
 /*   By: jose-gon <jose-gon@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 10:34:36 by jose-gon          #+#    #+#             */
-/*   Updated: 2026/03/25 19:20:50 by jose-gon         ###   ########.fr       */
+/*   Updated: 2026/04/19 23:48:03 by jose-gon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@
 #include <limits>
 #include <cstdlib>
 #include <algorithm>
+#include <ctime>
+#include <iomanip>
 
 
 
@@ -30,7 +32,6 @@ void print_container(const T& container)
 {
 	for (typename T::const_iterator it = container.begin(); it != container.end(); ++it)
 		std::cout << *it << " ";
-	std::cout << std::endl;
 }
 
 class PmergeMe
