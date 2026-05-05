@@ -6,7 +6,7 @@
 /*   By: jose-gon <jose-gon@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 17:42:25 by jose-gon          #+#    #+#             */
-/*   Updated: 2026/04/19 23:46:32 by jose-gon         ###   ########.fr       */
+/*   Updated: 2026/05/05 14:39:53 by jose-gon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,25 +76,24 @@ int main(int argc, char **argv)
 		clock_t start = clock();
 		me.sort(vec);
 		clock_t end = clock();
-		double elapsedTime = static_cast<double>(end - start) / CLOCKS_PER_SEC;
+		double elapsedTime = static_cast<double>(end - start) / CLOCKS_PER_SEC * 1000000;
 
 		std::cout << "After: ";
 		print_container(vec);
 		std::cout << std::endl;
 		
-		std::cout << "Time to process a range of " << vec.size() << " elements with std::vector : " << std::fixed << std::setprecision(6) << elapsedTime << " us" << std::endl;
+		std::cout << "Time to process a range of " << vec.size() 
+			<< " elements with std::vector : " << std::fixed << std::setprecision(6) 
+			<< elapsedTime << " us" << std::endl;
 	}
 	
 	{
 		clock_t start = clock();
 		me.sort(deq);
 		clock_t end = clock();
-		double elapsedTime = static_cast<double>(end - start) / CLOCKS_PER_SEC;
+		double elapsedTime = static_cast<double>(end - start) / CLOCKS_PER_SEC * 1000000;
 		std::cout << "Time to process a range of " << deq.size() << " elements with std::deque : " << elapsedTime << " us" << std::endl;
 	}
-	
-	//print_container(deq);
-	//std::cout << "Number of Comparations: " << me.nbr_comps << std::endl;
 	
 	return 0;
 }

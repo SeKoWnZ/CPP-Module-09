@@ -6,7 +6,7 @@
 /*   By: jose-gon <jose-gon@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 10:34:36 by jose-gon          #+#    #+#             */
-/*   Updated: 2026/04/19 23:48:03 by jose-gon         ###   ########.fr       */
+/*   Updated: 2026/05/05 14:40:10 by jose-gon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,16 +23,6 @@
 #include <algorithm>
 #include <ctime>
 #include <iomanip>
-
-
-
-////////// BORRAR ///////////
-template <typename T> 
-void print_container(const T& container)
-{
-	for (typename T::const_iterator it = container.begin(); it != container.end(); ++it)
-		std::cout << *it << " ";
-}
 
 class PmergeMe
 {
